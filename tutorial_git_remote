@@ -1,0 +1,13 @@
+Step 1 - sudo apt install git-all
+
+Step 2 - Buat repositori di akun github kita
+
+Step 3 - Hubungkan key di laptop kita, di akun github kita
+
+Step 3.a - Create the RSA Key Pair
+ssh-keygen
+
+Step 3.b - Copy & tambahkan id rsa yg telah kita buat, pada setting SSH di akun github kita
+ssh-keygen
+
+Step 4 - Clone repository yg telah kita buat, ke local directory kita

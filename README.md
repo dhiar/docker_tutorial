@@ -48,3 +48,40 @@ Restart server
 ```bash
 sudo restart
 ```
+
+Youtube tutorial : [part 2](https://www.youtube.com/watch?v=aM4DPvhFBjc)Restart server
+
+Lihat versi docker
+```bash
+docker -v
+```
+
+Example : pull image httpd
+```bash
+docker pull httpd:2.4-alpine
+```
+
+Melihat list images
+```bash
+docker images
+```
+
+Create container
+```bash
+docker container create --name web httpd:2.4-alpine
+```
+
+lihat container
+```bash
+docker ps -a
+```
+
+hapus , start, stop container
+```bash
+docker container <rm,start,stop> web
+```
+
+Create container dengan port
+```bash
+docker container create --name web -p 8080:80 httpd:2.4-alpine
+```

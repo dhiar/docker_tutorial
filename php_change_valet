@@ -1,0 +1,12 @@
+https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04
+
+
+sudo a2enmod php7.3
+sudo update-alternatives --set php /usr/bin/php7.3
+service apache2 restart
+
+Mengaktifkan valet php.4
+sudo a2dismod php7.3
+sudo update-alternatives --set php /usr/bin/php7.4
+valet restart
+
