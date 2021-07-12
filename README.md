@@ -54,6 +54,12 @@ Youtube tutorial : [part 2](https://www.youtube.com/watch?v=aM4DPvhFBjc)Restart 
 Lihat versi docker
 ```bash
 docker -v
+docker version
+```
+
+Lihat informasi docker
+```bash
+docker info
 ```
 
 Example : pull image httpd
@@ -66,6 +72,12 @@ Melihat list images
 docker images
 ```
 
+Delete image
+```bash
+docker image rm -f mysql:latest
+```
+
+
 Create container
 ```bash
 docker container create --name web httpd:2.4-alpine
@@ -74,6 +86,7 @@ docker container create --name web httpd:2.4-alpine
 lihat container
 ```bash
 docker ps -a
+docker container ls
 ```
 
 hapus , start, stop container
@@ -84,4 +97,67 @@ docker container <rm,start,stop> web
 Create container dengan port
 ```bash
 docker container create --name web -p 8080:80 httpd:2.4-alpine
+```
+
+Membuat simple website image menggunakan Dockerfile
+```
+# Dockerfile
+FROM httpd:2.4-alpine
+COPY . /usr/local/apache2/htdocs
+
+# index.html
+```
+
+Build image dengan Dockerfile
+```bash
+docker build -t mywebsite:1.0 .
+```
+
+Start image secara langsung (Sebenarnya ada 3 proses)
+1. Pull
+2. Container create
+3. Start container
+```bash
+docker run --name wp -p 3040:80 -d wordpress:latest
+# -d artinya adalah image yg akan gunakan
+```
+
+Membuat container mysql
+```
+docker run --name db -e MYSQL_ROOT_PASSWORD=manager247 -d mysql:5.7
+```
+
+Masuk container (name)db mysql
+```
+docker exec -it db mysql -u root -p
+```
+
+List network
+```
+docker network ls
+```
+
+Help network
+```
+docker help network
+```
+
+Membuat docker network
+```
+docker network create net-wp
+```
+
+Connect wordpress dengan DB
+```
+docker network connect net-wp db
+```
+
+Connect wordpress dengan Wordpress
+```
+docker network connect net-wp wp
+```
+
+List detail connect
+```
+docker network inspect net-wp
 ```
