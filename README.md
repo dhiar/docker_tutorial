@@ -161,3 +161,8 @@ List detail connect
 ```
 docker network inspect net-wp
 ```
+
+Install wordpress pada browser
+```
+http://localhost:3040
+```
